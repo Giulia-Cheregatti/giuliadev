@@ -1,0 +1,440 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilização geral do corpo */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+    color: #e0e0e0;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Fundo de partículas (canvas para o efeito) */
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.2;
+}
+
+/* Header e navegação */
+header {
+    background: rgba(10, 27, 42, 0.9);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 1.2rem 0;
+}
+
+nav ul li {
+    margin: 0 2rem;
+}
+
+nav ul li a {
+    color: #a3bffa;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #00ddeb;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #00ddeb;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Seção principal */
+main {
+    margin-top: 80px;
+    padding: 3rem 1rem;
+    min-height: calc(100vh - 80px);
+}
+
+.txtInicio {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 4rem 1rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.txtInicio.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.txtInicio h1 {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(0, 221, 235, 0.5);
+}
+
+.txtInicio h3 {
+    color: #00ddeb;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.txtInicio p {
+    font-size: 1.2rem;
+    color: #b0b0b0;
+    margin-bottom: 1rem;
+}
+
+/* Seção de habilidades (sobremim.html) */
+.habilidades {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.habilidades.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.habilidades h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(0, 221, 235, 0.5);
+}
+
+.habilidades ul {
+    list-style: none;
+    padding: 0;
+}
+
+.habilidades ul li {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.habilidades ul li:hover {
+    transform: translateX(10px);
+    box-shadow: 0 0 15px rgba(0, 221, 235, 0.3);
+}
+
+/* Seção de serviços (servicos.html) */
+.services-grid {
+    max-width: 1200px;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.service-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-card h3 {
+    color: #00ddeb;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.service-card p {
+    color: #b0b0b0;
+    font-size: 1rem;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(0, 221, 235, 0.4);
+}
+
+/* Seções de contatos e redes sociais (contatos.html) */
+.contatos, .redes-sociais {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.contatos.visible, .redes-sociais.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contatos h2, .redes-sociais h2 {
+    font-size: 2rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(0, 221, 235, 0.5);
+}
+
+.contatos p, .redes-sociais p {
+    font-size: 1.1rem;
+    color: #b0b0b0;
+    text-align: center;
+}
+
+.contatos a, .redes-sociais a {
+    color: #00ddeb;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.contatos a:hover, .redes-sociais a:hover {
+    color: #fff;
+    text-shadow: 0 0 5px #00ddeb;
+}
+
+.redes-sociais ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.redes-sociais ul li {
+    font-size: 1.1rem;
+}
+
+/* Formulário de orçamento (orcamentos.html) */
+.formulario-orcamento {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.formulario-orcamento.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.formulario-orcamento h2 {
+    font-size: 2rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(0, 221, 235, 0.5);
+}
+
+.formulario-orcamento form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.formulario-orcamento label {
+    font-size: 1.1rem;
+    color: #a3bffa;
+}
+
+.formulario-orcamento input,
+.formulario-orcamento select,
+.formulario-orcamento textarea {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.formulario-orcamento input:focus,
+.formulario-orcamento select:focus,
+.formulario-orcamento textarea:focus {
+    background: rgba(255, 255, 255, 0.25);
+    outline: none;
+}
+
+.formulario-orcamento textarea {
+    resize: vertical;
+}
+
+.formulario-orcamento button {
+    padding: 0.8rem;
+    background: #00ddeb;
+    color: #0d1b2a;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.formulario-orcamento button:hover {
+    background: #fff;
+    transform: translateY(-3px);
+}
+
+/* Seção de contato WhatsApp (orcamentos.html) */
+.contato-whatsapp {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.contato-whatsapp.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contato-whatsapp h2 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(0, 221, 235, 0.5);
+}
+
+.contato-whatsapp p {
+    font-size: 1.1rem;
+    color: #b0b0b0;
+    margin-bottom: 1.5rem;
+}
+
+.contato-whatsapp .whatsapp-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #00ddeb;
+    color: #0d1b2a;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contato-whatsapp .whatsapp-button:hover {
+    background: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(0, 221, 235, 0.5);
+}
+
+/* Menu hambúrguer */
+.hamburger {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: #a3bffa;
+    cursor: pointer;
+    position: absolute;
+    top: 1.2rem;
+    right: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.hamburger:hover {
+    color: #00ddeb;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: rgba(10, 27, 42, 0.95);
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 1.5rem 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 0.8rem 0;
+        text-align: center;
+    }
+
+    .txtInicio h1 {
+        font-size: 2.2rem;
+    }
+
+    .txtInicio p {
+        font-size: 1rem;
+    }
+
+    .habilidades h1, .services-grid h3, .contatos h2, .redes-sociais h2, .formulario-orcamento h2, .contato-whatsapp h2 {
+        font-size: 1.8rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}

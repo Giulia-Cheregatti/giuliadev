@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giulia Dev | Orçamentos</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobremim.html">Sobre Mim</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="contatos.html">Contato</a></li>
+                <li><a href="orcamentos.html">Orçamentos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="txtInicio">
+            <h1>Faça um Orçamento</h1>
+            <p>Preencha o formulário abaixo para solicitar um orçamento personalizado ou entre em contato diretamente pelo WhatsApp.</p>
+        </section>
+
+        <section class="formulario-orcamento">
+            <h2>Solicite seu Orçamento</h2>
+            <form action="mailto:contato@giuliadev.com" method="post" enctype="text/plain">
+                <label for="nome">Nome:</label><br>
+                <input type="text" id="nome" name="nome" required><br>
+
+                <label for="email">E-mail:</label><br>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="servico">Tipo de Serviço:</label><br>
+                <select id="servico" name="servico" required>
+                    <option value="" disabled selected>Selecione um serviço</option>
+                    <option value="landing-page">Landing Pages</option>
+                    <option value="website">Website</option>
+                    <option value="dapp">DApp</option>
+                </select><br>
+
+                <label for="mensagem">Mensagem:</label><br>
+                <textarea id="mensagem" name="mensagem" rows="5" required></textarea><br>
+
+                <button type="submit">Enviar Solicitação</button>
+            </form>
+        </section>
+
+        <section class="contato-whatsapp">
+            <h2>Contato</h2>
+            <p>Prefere falar diretamente? Clique no botão abaixo:</p>
+            <a href="https://wa.me/+5521999422284" target="_blank" class="whatsapp-button">Fale pelo WhatsApp</a>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
