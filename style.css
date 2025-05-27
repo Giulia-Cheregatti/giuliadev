@@ -15,7 +15,7 @@ body {
     position: relative;
 }
 
-/* Fundo de partículas (canvas para o efeito) */
+/* Fundo de partículas */
 #particles {
     position: fixed;
     top: 0;
@@ -57,22 +57,22 @@ nav ul li a {
     transition: color 0.3s ease;
 }
 
+nav ul li a:hover, nav ul li a:focus {
+    color: #40c4ff;
+}
+
 nav ul li a::after {
     content: '';
     position: absolute;
     width: 0;
     height: 2px;
-    background: #00ddeb;
+    background: #40c4ff;
     bottom: -5px;
     left: 0;
     transition: width 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: #00ddeb;
-}
-
-nav ul li a:hover::after {
+nav ul li a:hover::after, nav ul li a:focus::after {
     width: 100%;
 }
 
@@ -98,6 +98,14 @@ main {
     transform: translateY(0);
 }
 
+.txtInicio h3 {
+    color: #40c4ff;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
 .txtInicio h1 {
     font-size: 3rem;
     color: #fff;
@@ -105,21 +113,133 @@ main {
     text-shadow: 0 0 10px rgba(0, 221, 235, 0.5);
 }
 
-.txtInicio h3 {
-    color: #00ddeb;
+.txtInicio p {
+    font-size: 1.2rem;
+    color: #cccccc;
+    margin-bottom: 1rem;
+}
+
+/* Filtro de projetos/serviços */
+.filtro-projetos {
+    max-width: 900px;
+    margin: 2rem auto;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.filtro-projetos.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.filtro-projetos h2 {
     font-size: 1.8rem;
+    color: #40c4ff;
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
-.txtInicio p {
-    font-size: 1.2rem;
-    color: #b0b0b0;
-    margin-bottom: 1rem;
+.filtro-projetos select {
+    background: rgba(10, 27, 42, 0.9);
+    color: #a3bffa;
+    border: 1px solid #40c4ff;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Seção de habilidades (sobremim.html) */
+.filtro-projetos select:hover,
+.filtro-projetos select:focus {
+    background: #40c4ff;
+    color: #0d1b2a;
+    outline: none;
+}
+
+/* Seção de projetos e serviços */
+.projetos, .services-grid {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.projetos h2, .services-grid h2 {
+    font-size: 2rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgba(0, 221, 235, 0.5);
+}
+
+.projetos .projeto-card, .services-grid .service-card {
+    background: rgba(10, 27, 42, 0.95);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 1rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.projetos .projeto-card.visible, .services-grid .service-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.projetos .projeto-card:hover, .services-grid .service-card:hover {
+    box-shadow: 0 0 20px rgba(0, 221, 235, 0.5);
+    transform: translateY(-5px);
+}
+
+.projetos .projeto-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.projetos .projeto-card h3, .services-grid .service-card h3 {
+    font-size: 1.5rem;
+    color: #40c4ff;
+    margin: 1rem;
+}
+
+.projetos .projeto-card p, .services-grid .service-card p {
+    font-size: 1rem;
+    color: #cccccc;
+    margin: 0 1rem 1rem;
+}
+
+.projetos .projeto-card a {
+    display: inline-block;
+    margin: 0 1rem 1.5rem;
+    padding: 0.5rem 1rem;
+    background: #40c4ff;
+    color: #0d1b2a;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.projetos .projeto-card a:hover {
+    background: #a3bffa;
+    transform: scale(1.05);
+}
+
+.services-grid .service-card i {
+    font-size: 2rem;
+    color: #40c4ff;
+    margin: 1rem;
+}
+
+/* Seção de habilidades */
 .habilidades {
     max-width: 900px;
     margin: 2rem auto;
@@ -139,7 +259,7 @@ main {
     color: #fff;
     text-align: center;
     margin-bottom: 1.5rem;
-    text-shadow: 0 0 10px rgba(0, 221, 235, 0.5);
+    text-shadow: 0 0 10px rgba(0, 221, 235, 0.25);
 }
 
 .habilidades ul {
@@ -156,54 +276,17 @@ main {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.habilidades ul li:hover {
+.habilidades ul li i {
+    margin-right: 0.5rem;
+    color: #40c4ff;
+}
+
+.habilidades ul li:hover, .habilidades ul li:focus {
     transform: translateX(10px);
     box-shadow: 0 0 15px rgba(0, 221, 235, 0.3);
 }
 
-/* Seção de serviços (servicos.html) */
-.services-grid {
-    max-width: 1200px;
-    margin: 2rem auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-}
-
-.service-card {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 2rem;
-    border-radius: 12px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.service-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.service-card h3 {
-    color: #00ddeb;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.service-card p {
-    color: #b0b0b0;
-    font-size: 1rem;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 20px rgba(0, 221, 235, 0.4);
-}
-
-/* Seções de contatos e redes sociais (contatos.html) */
+/* Seções de contatos e redes sociais */
 .contatos, .redes-sociais {
     max-width: 900px;
     margin: 2rem auto;
@@ -223,25 +306,25 @@ main {
     color: #fff;
     text-align: center;
     margin-bottom: 1.5rem;
-    text-shadow: 0 0 10px rgba(0, 221, 235, 0.5);
+    text-shadow: 0 0 10px rgba(0, 255, 235, 0.5);
 }
 
 .contatos p, .redes-sociais p {
     font-size: 1.1rem;
-    color: #b0b0b0;
+    color: #cccccc;
     text-align: center;
 }
 
 .contatos a, .redes-sociais a {
-    color: #00ddeb;
+    color: #40c4ff;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
-.contatos a:hover, .redes-sociais a:hover {
+.contatos a:hover, .contatos a:focus, .redes-sociais a:hover, .redes-sociais a:focus {
     color: #fff;
-    text-shadow: 0 0 5px #00ddeb;
+    text-shadow: 0 0 5px #40c4ff;
 }
 
 .redes-sociais ul {
@@ -256,7 +339,11 @@ main {
     font-size: 1.1rem;
 }
 
-/* Formulário de orçamento (orcamentos.html) */
+.redes-sociais ul li i {
+    margin-right: 0.5rem;
+}
+
+/* Formulário de orçamento */
 .formulario-orcamento {
     max-width: 900px;
     margin: 2rem auto;
@@ -276,7 +363,7 @@ main {
     color: #fff;
     text-align: center;
     margin-bottom: 1.5rem;
-    text-shadow: 0 0 10px rgba(0, 221, 235, 0.5);
+    text-shadow: 0 0 10px rgba(0, 255, 235, 0.5);
 }
 
 .formulario-orcamento form {
@@ -298,7 +385,7 @@ main {
 .formulario-orcamento textarea {
     padding: 0.8rem;
     border: none;
-    border-radius: 8px;
+    border-radius: 2px;
     background: rgba(255, 255, 255, 0.15);
     color: #fff;
     font-size: 1rem;
@@ -309,7 +396,7 @@ main {
 .formulario-orcamento select:focus,
 .formulario-orcamento textarea:focus {
     background: rgba(255, 255, 255, 0.25);
-    outline: none;
+    outline: 2px solid #40c4ff;
 }
 
 .formulario-orcamento textarea {
@@ -318,21 +405,46 @@ main {
 
 .formulario-orcamento button {
     padding: 0.8rem;
-    background: #00ddeb;
+    background: #40c4ff;
     color: #0d1b2a;
     font-weight: 600;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-.formulario-orcamento button:hover {
+.formulario-orcamento button:hover, .formulario-orcamento button:focus {
     background: #fff;
     transform: translateY(-3px);
 }
 
-/* Seção de contato WhatsApp (orcamentos.html) */
+.form-feedback {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    color: #40c4ff;
+    display: none;
+}
+
+.form-feedback.success {
+    color: #00ff00;
+    display: block;
+}
+
+.form-feedback.error {
+    color: #ff3333;
+    display: block;
+}
+
+.error-message {
+    color: #ff3333;
+    font-size: 0.9rem;
+    display: none;
+    margin-top: 0.2rem;
+}
+
+/* Seção de contato WhatsApp */
 .contato-whatsapp {
     max-width: 900px;
     margin: 2rem auto;
@@ -352,30 +464,34 @@ main {
     font-size: 2rem;
     color: #fff;
     margin-bottom: 1.5rem;
-    text-shadow: 0 0 10px rgba(0, 221, 235, 0.5);
+    text-shadow: 0 0 10px rgba(0, 255, 235, 0.5);
 }
 
 .contato-whatsapp p {
     font-size: 1.1rem;
-    color: #b0b0b0;
+    color: #cccccc;
     margin-bottom: 1.5rem;
 }
 
 .contato-whatsapp .whatsapp-button {
     display: inline-block;
     padding: 0.8rem 1.5rem;
-    background: #00ddeb;
+    background: #40c4ff;
     color: #0d1b2a;
     font-weight: 600;
     text-decoration: none;
     border-radius: 8px;
-    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-.contato-whatsapp .whatsapp-button:hover {
+.contato-whatsapp .whatsapp-button i {
+    margin-right: 0.5rem;
+}
+
+.contato-whatsapp .whatsapp-button:hover, .contato-whatsapp .whatsapp-button:focus {
     background: #fff;
     transform: translateY(-3px);
-    box-shadow: 0 0 15px rgba(0, 221, 235, 0.5);
+    box-shadow: 0 0 15px rgba(0, 255, 235, 0.4);
 }
 
 /* Menu hambúrguer */
@@ -392,20 +508,20 @@ main {
     transition: color 0.3s ease;
 }
 
-.hamburger:hover {
-    color: #00ddeb;
+.hamburger:hover, .hamburger:focus {
+    color: #40c4ff;
 }
 
 @media (max-width: 768px) {
     nav ul {
         display: none;
         flex-direction: column;
-        background: rgba(10, 27, 42, 0.95);
+        background: rgba(255, 255, 255, 0.1);
         position: absolute;
         top: 70px;
         left: 0;
         width: 100%;
-        padding: 1.5rem 0;
+        padding: 0.5rem 0;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
@@ -426,11 +542,16 @@ main {
         font-size: 1rem;
     }
 
-    .habilidades h1, .services-grid h3, .contatos h2, .redes-sociais h2, .formulario-orcamento h2, .contato-whatsapp h2 {
+    .filtro-projetos select {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .habilidades h1, .services-grid h3, .contatos h2, .redes-sociais h2, .formulario-orcamento h2, .contato-whatsapp h2, .projetos h2 {
         font-size: 1.8rem;
     }
 
-    .services-grid {
+    .projetos, .services-grid {
         grid-template-columns: 1fr;
     }
 

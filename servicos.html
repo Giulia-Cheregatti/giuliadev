@@ -3,20 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Serviços de desenvolvimento web, automações e DApps por Giulia Dev.">
+    <meta name="keywords" content="landing pages, websites, DApps, automações, Web 3.0, desenvolvimento web">
+    <meta name="author" content="Giulia Cheregatti">
     <title>Giulia Dev | Serviços</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
-        <nav>
+        <nav aria-label="Menu principal">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="sobremim.html">Sobre Mim</a></li>
+                <li><a href="portfolio.html">Portfólio</a></li>
                 <li><a href="servicos.html">Serviços</a></li>
                 <li><a href="contatos.html">Contato</a></li>
                 <li><a href="orcamentos.html">Orçamentos</a></li>
             </ul>
+            <button class="hamburger" aria-label="Abrir menu de navegação">☰</button>
         </nav>
     </header>
 
@@ -26,20 +33,33 @@
             <p>Conheça os serviços profissionais que ofereço para transformar suas ideias em realidade.</p>
         </section>
 
-        <section class="services-grid">
-            <div class="service-card">
+        <section class="filtro-projetos">
+            <h2>Filtrar Serviços</h2>
+            <select id="filtro-tipo" name="filtro-tipo">
+                <option value="todos" selected>Todos</option>
+                <option value="landing-page">Landing Page</option>
+                <option value="website-corporativo">Websites Corporativos</option>
+                <option value="dapp">DApps</option>
+            </select>
+        </section>
+
+        <section class="services-grid" itemscope itemtype="https://schema.org/Service">
+            <div class="service-card" data-tipo="landing-page">
+                <i class="fas fa-file-alt"></i>
                 <h3>Landing Pages</h3>
-                <p>Explicando o que é feito nesse tipo de serviço.</p>
+                <p>Criação de páginas otimizadas para conversão, com design responsivo e integração com ferramentas de marketing.</p>
             </div>
 
-            <div class="service-card">
-                <h3>Website</h3>
-                <p>Explicando o que é feito nesse tipo de serviço.</p>
+            <div class="service-card" data-tipo="website-corporativo">
+                <i class="fas fa-globe"></i>
+                <h3>Websites</h3>
+                <p>Desenvolvimento de sites institucionais e e-commerce, com foco em performance, SEO e experiência do usuário.</p>
             </div>
 
-            <div class="service-card">
-                <h3>DApp's</h3>
-                <p>Explicando o que é feito nesse tipo de serviço.</p>
+            <div class="service-card" data-tipo="dapp">
+                <i class="fas fa-link"></i>
+                <h3>DApps</h3>
+                <p>Construção de aplicações descentralizadas com integração a blockchains como Ethereum, Polygon e Solana.</p>
             </div>
         </section>
     </main>
