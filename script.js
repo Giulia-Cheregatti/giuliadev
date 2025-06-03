@@ -45,15 +45,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sections.forEach(section => observer.observe(section));
 
-    // Filtro de projetos/serviços
+    // Filtro de projetos
     const filtroTipo = document.getElementById('filtro-tipo');
     const projetoCards = document.querySelectorAll('.projeto-card');
-    const serviceCards = document.querySelectorAll('.service-card');
     if (filtroTipo) {
         filtroTipo.addEventListener('change', () => {
             const tipoSelecionado = filtroTipo.value;
-            const cards = [...projetoCards, ...serviceCards];
-            cards.forEach(card => {
+            projetoCards.forEach(card => {
                 if (tipoSelecionado === 'todos' || card.dataset.tipo === tipoSelecionado) {
                     card.style.display = 'block';
                     setTimeout(() => {
