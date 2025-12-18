@@ -1,0 +1,193 @@
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border-top: 1px solid var(--glass-border);
+  padding: var(--spacing-lg) 0 var(--spacing-md);
+  position: relative;
+  margin-top: var(--spacing-xl);
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-primary), var(--color-accent), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.footer-text {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-text::before {
+  content: '💜';
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(1); }
+}
+
+.footer-socials {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.social-link {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-normal);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: var(--color-primary);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s, height 0.5s;
+  z-index: -1;
+}
+
+.social-link:hover {
+  color: white;
+  border-color: var(--color-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(139, 92, 246, 0.4);
+}
+
+.social-link:hover::before {
+  width: 200px;
+  height: 200px;
+}
+
+.social-link[href*="github"]::after { content: ' 🐙'; }
+.social-link[href*="linkedin"]::after { content: ' 💼'; }
+.social-link[href*="twitter"]::after { content: ' 🐦'; }
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+  z-index: 90;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.6), var(--glow-primary);
+}
+
+.back-to-top:active {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.back-to-top.visible {
+  animation: fadeInUp 0.3s ease;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.footer-credits {
+  font-size: 0.85rem;
+  color: var(--color-text-tertiary);
+  text-align: center;
+  margin-top: var(--spacing-sm);
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--glass-border);
+  width: 100%;
+}
+
+.footer-credits a {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+  transition: all var(--transition-fast);
+}
+
+.footer-credits a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+/* RESPONSIVE FOOTER */
+@media (max-width: 768px) {
+  .footer { padding: var(--spacing-md) 0; }
+  .footer-socials { gap: var(--spacing-sm); }
+  .social-link { padding: 0.625rem 1.25rem; font-size: 0.85rem; }
+  .back-to-top { bottom: 1.5rem; right: 1.5rem; width: 45px; height: 45px; font-size: 1.25rem; }
+}
+
+@media (max-width: 480px) {
+  .footer-text { font-size: 0.875rem; }
+  .footer-socials { flex-direction: column; width: 100%; }
+  .social-link { width: 100%; text-align: center; }
+}

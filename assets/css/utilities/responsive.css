@@ -1,0 +1,14 @@
+/* ============================================
+   MEDIA QUERIES GERAIS E AJUSTES RESPONSIVOS
+   ============================================ */
+
+@media (max-width: 768px) {
+  :root {
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+  }
+
+  section {
+    padding: var(--spacing-lg) 0;
+  }
+}

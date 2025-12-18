@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Giulia - Desenvolvedora Full-Stack brasileira apaixonada por criar experiências digitais lindas e escaláveis. Portfólio com projetos em JavaScript, Node.js, React e mais.">
+    <meta name="keywords" content="desenvolvedor full-stack, portfolio, javascript, node.js, react, web developer, brasil">
+    <meta name="author" content="Giulia">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://giulia.dev/">
+    <meta property="og:title" content="Giulia - Desenvolvedora Full-Stack">
+    <meta property="og:description" content="Desenvolvedora Full-Stack apaixonada por criar experiências digitais lindas e escaláveis ☕">
+    <meta property="og:image" content="https://giulia.dev/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://giulia.dev/">
+    <meta property="twitter:title" content="Giulia - Desenvolvedora Full-Stack">
+    <meta property="twitter:description" content="Desenvolvedora Full-Stack apaixonada por criar experiências digitais lindas e escaláveis ☕">
+    <meta property="twitter:image" content="https://giulia.dev/og-image.jpg">
+
+    <!-- Theme Color (adapta com dark mode via JS depois) -->
+    <meta name="theme-color" content="#8b5cf6">
+
+    <!-- Favicon (você pode substituir por seus próprios depois) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💜</text></svg>">
+
+    <!-- Google Fonts - Satoshi Alternative (usando Inter que é similar e está no Google Fonts) -->
+    <!-- Nota: Satoshi não está no Google Fonts oficial, então usamos Inter que tem peso variável similar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Three.js via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+
+    <!-- CSS Principal (vamos criar na próxima etapa) -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- JavaScript Principal (vamos criar depois) -->
+    <script type="module" src="assets/js/main.js" defer></script>
+
+    <title>Giulia - Desenvolvedora Full-Stack</title>
+</head>
+<body>
+
+    <!-- Container para o elemento 3D (Three.js) - ficará fixo no background -->
+    <div id="canvas-container" aria-hidden="true"></div>
+
+    <!-- Navbar fixa com glassmorphism -->
+    <header class="navbar" id="navbar">
+        <nav class="nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-text">Giulia</span>
+                <span class="logo-dot">.</span>
+            </a>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#projects" class="nav-link">Projetos</a></li>
+                <li><a href="#experience" class="nav-link">Experiência</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+
+            <!-- Toggle de tema dark/light -->
+            <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema claro/escuro">
+                <span class="theme-icon sun-icon">☀️</span>
+                <span class="theme-icon moon-icon">🌙</span>
+            </button>
+
+            <!-- Botão hambúrguer para mobile -->
+            <button class="hamburger" id="hamburger" aria-label="Menu mobile">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+                <div class="hero-container">
+                <div class="hero-content">
+                    <p class="hero-greeting">Olá, eu sou</p>
+                    <h1 class="hero-title">
+                        <span class="hero-name">Giulia Cheregatti</span>
+                        <span class="hero-emoji">👋</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Desenvolvedora Full-Stack apaixonada por criar experiências digitais lindas e escaláveis ☕
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">Ver Projetos</a>
+                        <a href="#contact" class="btn btn-secondary">Fale Comigo</a>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <div class="image-wrapper">
+                        <img src="assets/images/imageProfissa.jpg" alt="Foto de Giulia" class="profile-photo">
+                        <div class="image-glow"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="scroll-indicator">
+                <span class="scroll-text">Role para descobrir</span>
+                <div class="scroll-arrow">↓</div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="section-container">
+                <h2 class="section-title">Sobre Mim</h2>
+                <div class="about-content">
+                    <div class="about-card glass-card">
+                        <p class="about-text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                        </p>
+                        <p class="about-text">
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        </p>
+                    </div>
+
+                    <!-- Skills Grid -->
+                    <div class="skills-grid">
+                        <div class="skill-card glass-card">
+                            <div class="skill-icon">⚡</div>
+                            <h3 class="skill-title">Frontend</h3>
+                            <p class="skill-list">HTML, CSS, JavaScript, React, Vue</p>
+                        </div>
+                        <div class="skill-card glass-card">
+                            <div class="skill-icon">🚀</div>
+                            <h3 class="skill-title">Backend</h3>
+                            <p class="skill-list">Node.js, Express, PostgreSQL, MongoDB</p>
+                        </div>
+                        <div class="skill-card glass-card">
+                            <div class="skill-icon">🎨</div>
+                            <h3 class="skill-title">Design</h3>
+                            <p class="skill-list">Figma, UI/UX, Glassmorphism, Animations</p>
+                        </div>
+                        <div class="skill-card glass-card">
+                            <div class="skill-icon">🔧</div>
+                            <h3 class="skill-title">DevOps</h3>
+                            <p class="skill-list">Git, Docker, CI/CD, AWS, Vercel</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects" id="projects">
+            <div class="section-container">
+                <h2 class="section-title">Projetos em Destaque</h2>
+                <div class="projects-grid">
+                    <!-- Os projetos serão adicionados aqui -->
+                    <article class="project-card glass-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Projeto 1">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Projeto Exemplo 1</h3>
+                            <p class="project-description">Descrição do projeto incrível que você desenvolveu.</p>
+                            <div class="project-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">MongoDB</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Ver Demo →</a>
+                                <a href="#" class="project-link">GitHub →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card glass-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop" alt="Projeto 2">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Projeto Exemplo 2</h3>
+                            <p class="project-description">Outro projeto fantástico do seu portfólio.</p>
+                            <div class="project-tags">
+                                <span class="tag">Vue.js</span>
+                                <span class="tag">Express</span>
+                                <span class="tag">PostgreSQL</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Ver Demo →</a>
+                                <a href="#" class="project-link">GitHub →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card glass-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=600&h=400&fit=crop" alt="Projeto 3">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Projeto Exemplo 3</h3>
+                            <p class="project-description">Mais um projeto sensacional.</p>
+                            <div class="project-tags">
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Three.js</span>
+                                <span class="tag">WebGL</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Ver Demo →</a>
+                                <a href="#" class="project-link">GitHub →</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience/Timeline Section -->
+        <section class="experience" id="experience">
+            <div class="section-container">
+                <h2 class="section-title">Experiência & Formação</h2>
+                <div class="timeline">
+                    <!-- Timeline items serão estilizados depois -->
+                    <div class="timeline-item glass-card">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2024 - Presente</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Desenvolvedora Full-Stack Sênior</h3>
+                            <p class="timeline-company">Empresa Tech XYZ</p>
+                            <p class="timeline-description">Desenvolvendo aplicações escaláveis com React e Node.js.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item glass-card">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2022 - 2024</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Desenvolvedora Full-Stack</h3>
+                            <p class="timeline-company">Startup ABC</p>
+                            <p class="timeline-description">Criação de MVPs e produtos digitais do zero.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item glass-card">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2019 - 2022</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Bacharelado em Ciência da Computação</h3>
+                            <p class="timeline-company">Universidade Federal</p>
+                            <p class="timeline-description">Formação em desenvolvimento de software e algoritmos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="section-container">
+                <h2 class="section-title">Vamos Conversar?</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <p class="contact-text">
+                            Estou sempre aberta a novos projetos e oportunidades. 
+                            Entre em contato comigo!
+                        </p>
+                        <div class="contact-methods">
+                            <a href="mailto:giulia@exemplo.com" class="contact-method glass-card">
+                                <span class="contact-icon">📧</span>
+                                <span class="contact-label">giulia@exemplo.com</span>
+                            </a>
+                            <a href="https://linkedin.com/in/giulia" class="contact-method glass-card" target="_blank">
+                                <span class="contact-icon">💼</span>
+                                <span class="contact-label">LinkedIn</span>
+                            </a>
+                            <a href="https://github.com/giulia" class="contact-method glass-card" target="_blank">
+                                <span class="contact-icon">🐙</span>
+                                <span class="contact-label">GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Formulário de contato -->
+                    <form class="contact-form glass-card" id="contact-form">
+  <!-- Mensagem de sucesso/erro aparecerá aqui dinamicamente -->
+
+  <div class="form-group">
+    <label for="name" class="form-label">Nome</label>
+    <input 
+      type="text" 
+      id="name" 
+      name="name" 
+      class="form-input" 
+      placeholder="Seu nome completo"
+      required
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="email" class="form-label">Email</label>
+    <input 
+      type="email" 
+      id="email" 
+      name="email" 
+      class="form-input" 
+      placeholder="seuemail@exemplo.com"
+      required
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="message" class="form-label">Mensagem</label>
+    <textarea 
+      id="message" 
+      name="message" 
+      class="form-textarea" 
+      placeholder="Conte mais sobre seu projeto..."
+      rows="5" 
+      required
+    ></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-full">
+    Enviar Mensagem
+  </button>
+</form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="footer-text">
+                Desenvolvido com 💜 por Giulia © 2025
+            </p>
+            <div class="footer-socials">
+                <a href="https://github.com/giulia" class="social-link" target="_blank" aria-label="GitHub">GitHub</a>
+                <a href="https://linkedin.com/in/giulia" class="social-link" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+                <a href="https://twitter.com/giulia" class="social-link" target="_blank" aria-label="Twitter">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

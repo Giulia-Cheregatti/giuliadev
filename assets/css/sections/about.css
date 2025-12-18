@@ -1,0 +1,169 @@
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+
+.about {
+  background: transparent;
+  position: relative;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.about-card {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  position: relative;
+  overflow: visible;
+}
+
+.about-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.3), transparent 70%);
+  border-radius: 50%;
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+.about-text {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.about-text:first-of-type::first-letter {
+  font-size: 3em;
+  font-weight: var(--font-weight-black);
+  float: left;
+  line-height: 0.9;
+  margin: 0.1em 0.1em 0 0;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+}
+
+.skill-card {
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  align-items: center;
+  text-align: center;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  transition: transform var(--transition-slow);
+}
+
+.skill-card:hover::before {
+  transform: translateX(100%) translateY(100%) rotate(45deg);
+}
+
+.skill-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 15px 50px var(--glass-shadow), var(--glow-primary);
+}
+
+.skill-icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-xs);
+  filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.5));
+  transition: all var(--transition-normal);
+  animation: float 3s ease-in-out infinite;
+}
+
+.skill-card:nth-child(1) .skill-icon { animation-delay: 0s; }
+.skill-card:nth-child(2) .skill-icon { animation-delay: 0.5s; }
+.skill-card:nth-child(3) .skill-icon { animation-delay: 1s; }
+.skill-card:nth-child(4) .skill-icon { animation-delay: 1.5s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(5deg); }
+  50% { transform: translateY(-5px) rotate(-5deg); }
+  75% { transform: translateY(-10px) rotate(3deg); }
+}
+
+.skill-card:hover .skill-icon {
+  transform: scale(1.2) rotate(10deg);
+  animation-play-state: paused;
+}
+
+.skill-title {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin: 0;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.skill-list {
+  font-size: 0.9rem;
+  color: var(--color-text-tertiary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.skill-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  transition: width var(--transition-slow);
+  box-shadow: var(--glow-primary);
+}
+
+.skill-card:hover::after {
+  width: 100%;
+}
+
+/* RESPONSIVE ABOUT */
+@media (max-width: 768px) {
+  .skills-grid { grid-template-columns: 1fr; gap: var(--spacing-sm); }
+  .about-card { padding: var(--spacing-md); }
+  .skill-card { padding: var(--spacing-sm) var(--spacing-md); }
+}
+
+@media (max-width: 480px) {
+  .about-text:first-of-type::first-letter { font-size: 2.5em; }
+  .skill-icon { font-size: 2.5rem; }
+  .skill-title { font-size: 1.125rem; }
+}
